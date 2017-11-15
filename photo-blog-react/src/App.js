@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //import logo from './logo.svg';
 import './App.css';
 import Header from "./components/header";
 import PhotoList from "./components/photo_list";
-import PhotoItem from "./components/photo_item";
+import FlickrImport from "./components/flickr_import";
 
 class App extends Component {
   constructor(props) {
@@ -12,10 +12,12 @@ class App extends Component {
     this.state = {
       message : null,
       fetching: true,
-      photos: []
+      photos: [],
+      //isFlickrVisible: false
     };
   }
 
+  //testing fetching info from express server
   componentDidMount(){
     fetch("/test")
       .then(response => {
@@ -38,14 +40,30 @@ class App extends Component {
       })
   };
 
+
+  //function to show/hide flickr import ui
+  toggleFlickrImport(e) {
+    //const isFlickrVisible = this.props.isFlickrVisible;
+    e.preventDefault();
+    console.log("you clicked the thing");
+    //this.setState({isFlickrVisible: true});
+    //console.log(this.state.isFlickrVisible);
+  };
+  
+
   render() {
     return (
       <div className="App">
+        <div className="flickr-import-container" 
+          //{this.state.isFlickrVisible && className="visibility--hidden"}
+          >
+          <FlickrImport />
+        </div>
         <div className="App-header">
-          <Header />
+          <Header toggleFlickrImport={this.toggleFlickrImport} />
         </div>
         <div>
-          <PhotoList photos = {this.state.photos}/>
+          <PhotoList photos={this.state.photos} />
           <p className="App-intro">
           {this.state.fetching
             ? 'Fetching message from API'

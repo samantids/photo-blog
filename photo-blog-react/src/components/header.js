@@ -1,18 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Header = () => {
-	return(
-		<div className="navbar">
-			<div className="navbar-left">
-				SAMANTHA SCHWARTZ
+class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      placeholder: null
+    };
+  }
+
+	render(){
+		return(
+			<div className="navbar">
+				<div className="navbar-left">
+					SAMANTHA SCHWARTZ
+				</div>
+				<div className="navbar-right">
+					<a href="/import" onClick={this.props.toggleFlickrImport}>
+						<img src="images/instagram.svg" alt="instagram logo" />
+					</a>
+				</div>
 			</div>
-			<div className="navbar-right">
-				<a href="/import">
-					<img src="images/instagram.svg" alt="instagram logo" />
-				</a>
-			</div>
-		</div>
-	);
+		);
+	};
 };
 
-export default Header;
+export default Header; 

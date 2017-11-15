@@ -4,7 +4,9 @@ import PhotoItem from "./photo_item";
 const PhotoList = (props) => {
 	const photoItems = props.photos.map((photo) => {
 		return(
-			<PhotoItem photoSrc={photo.url} />
+			<PhotoItem 
+				photoSrc={photo.url}
+				key={photo.id} />
 		);		
 	});
 

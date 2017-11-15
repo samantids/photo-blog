@@ -2,4 +2,24 @@
   text-align: center;
 }
 
+.flickr-import-container {
+	position: relative;
+    display: inline-block;
+    top: 100px;
+    margin: 10px auto;
+}
 
+.flickr-import {
+    position: absolute;
+    z-index: 1;
+    width: 800px;
+    text-align: center;
+    left: -384px;
+    padding: 8px 0px;
+    height: 500px;
+    background-color: pink;
+}
+
+.visiblity--hidden {
+	visibility: hidden;
+}
